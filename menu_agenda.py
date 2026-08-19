@@ -28,21 +28,21 @@ def adicionar():
     if nome not in contatos:
         contatos[nome] = {"telefone": telefone, "email": email}
         salvar()
-        return contatos[nome]
+        print(contatos[nome])
         
     else:
-        return "Nome já utilizado, adicione um sobrenome ou um usuario diferente"
+        print("Nome já utilizado, adicione um sobrenome ou um usuario diferente")
 
 def buscar():
     busca = input("Digite o nome que deseja buscar: ")
     if busca in contatos:
-        return contatos[busca]
+        print(contatos[busca])
     else:
-        return "Valor não encontrado"
+        print("Valor não encontrado")
 
 def listar():
     if not contatos:
-        return "Nenhum contato cadastrado"
+        print("Nenhum contato cadastrado")
     else:
         for nome, contatos in contatos.items():
             print(nome, contatos)
@@ -53,6 +53,6 @@ def remover():
         contatos.pop(nome_remover)#Removendo a chave desejada
         salvar()
 
-        return f"{nome_remover} removido da agenda"
+        print(f"{nome_remover} removido da agenda")
     else:
-        return "Nome não encontrado"
+        print("Nome não encontrado")
