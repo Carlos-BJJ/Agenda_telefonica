@@ -16,6 +16,6 @@ while True:
         case "3":
             menu_agenda.listar()
         case "4":
-            menu_agenda.remover
+            menu_agenda.remover()
         case "5":
-            break 
+            break
