@@ -5,7 +5,8 @@ while True:
     print("[2]Buscar")
     print("[3]Listar")
     print("[4]Remover")
-    print("[5]Sair")
+    print("[5]Editar")
+    print("[6]Sair")
     opcao = input("Digite sua opção: ")
 
     match opcao:
@@ -18,4 +19,6 @@ while True:
         case "4":
             menu_agenda.remover()
         case "5":
+            menu_agenda.editar()
+        case "6":
             break
