@@ -1,5 +1,7 @@
 import menu_agenda
 
+menu_agenda.criar_tabela()
+
 while True:
     print("[1]Adicionar")
     print("[2]Buscar")
