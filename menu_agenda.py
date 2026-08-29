@@ -1,5 +1,20 @@
 import conexao_sql
 
+def criar_tabela():
+    """Cria a tabela contatos caso ela ainda não exista."""
+    conn = conexao_sql.conectar()
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS contatos (
+            nome     VARCHAR(100) PRIMARY KEY,
+            telefone VARCHAR(20) NOT NULL,
+            email    VARCHAR(100)
+        )
+    """)
+    conn.commit()
+    cur.close()
+    conn.close()
+
 def adicionar(nome, telefone, email):
 
     """Insere um novo contato. Retorna True se deu certo, False se o nome já existe."""
@@ -29,7 +44,7 @@ def buscar(nome):
     resultado = cur.fetchall()
     cur.close()
     conn.close()
-    return resultado
+    print(resultado)
 
 def contato_existe(nome):
     #Verifica se um contato com nome exato já existe.
@@ -39,7 +54,7 @@ def contato_existe(nome):
     existe = cur.fetchone() is not None
     cur.close()
     conn.close()
-    return existe
+    print(existe)
 
 def editar(nome, telefone=None, email=None):
     
@@ -67,7 +82,7 @@ def listar():
     resultado = cur.fetchall()
     cur.close()
     conn.close()
-    return resultado
+    print(resultado)
 
 def remover(nome):
     """Remove um contato pelo nome. Retorna True se removeu, False se não existia."""
